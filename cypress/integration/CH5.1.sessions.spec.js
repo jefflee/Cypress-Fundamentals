@@ -120,6 +120,8 @@ describe("Sessions page", () => {
     cy.get("@ThursdayBtn").click();
     cy.wait("@getSessionInfo");
 
+    cy.screenshot();
+
     // Assertions
     cy.get("[data-cy=day]").should("have.length", 4);
     cy.get("[data-cy=day]").contains("Wednesday").should("not.exist");
