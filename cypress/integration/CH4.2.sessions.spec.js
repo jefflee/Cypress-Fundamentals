@@ -26,6 +26,10 @@ describe("Sessions page", () => {
       cy.get("@WednesdayBtn").click();
   
       // Assertion
+      // cypress try to find 100 elements until default timeout 4000 ms. 
+      // You can see cypress tries to find 100 elements a while, then shows a error.
+      // cy.get("[data-cy=day]").should("have.length", 100); 
+      cy.get("[data-cy=day]").contains("Wednesday");
       cy.get("[data-cy=day]").contains("Wednesday").should("be.visible");
       cy.get("[data-cy=day]").contains("Thursday").should("not.exist");
       cy.get("[data-cy=day]").contains("Friday").should("not.exist");
